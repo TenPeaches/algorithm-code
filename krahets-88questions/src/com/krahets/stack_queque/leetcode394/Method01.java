@@ -2,7 +2,9 @@ package com.krahets.stack_queque.leetcode394;
 
 import java.util.Stack;
 
+// 该类包含解码字符串的方法
 public class Method01 {
+    // 解码字符串的方法，根据特定格式进行解析
     public String decodeString(String s) {
         int num = 0;
         StringBuilder sb = new StringBuilder();
