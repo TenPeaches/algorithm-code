@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
+/**
+ * Method03类用于查找字符串中第一个唯一字符的索引。
+ */
 public class Method03 {
     public int firstUniqChar(String s) {
         Map<Character, Integer> map = new HashMap<>();
@@ -27,6 +30,9 @@ public class Method03 {
         return queue.isEmpty() ? -1 : queue.peek().index; // 返回第一个唯一字符的索引
     }
 
+    /**
+     * Pair类用于存储字符及其对应的索引。
+     */
     class Pair { // 将类名更改为大写
         char ch; // 修改为 char 型
         int index;

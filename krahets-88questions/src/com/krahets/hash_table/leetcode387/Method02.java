@@ -3,7 +3,9 @@ package com.krahets.hash_table.leetcode387;
 import java.util.HashMap;
 import java.util.Map;
 
+// 方法02类
 public class Method02 {
+    // 找到字符串中第一个唯一字符的索引，若不存在则返回-1
     public int firstUniqChar(String s) {
         Map<Character, Integer> map=new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
@@ -21,3 +23,4 @@ public class Method02 {
         return -1;
     }
 }
+
