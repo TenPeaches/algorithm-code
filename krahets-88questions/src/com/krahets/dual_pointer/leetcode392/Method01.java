@@ -4,42 +4,34 @@ public class Method01 {
 
     // 检查字符串 s 是否为字符串 t 的子序列
     public boolean isSubsequence(String s, String t) {
-        // 获取 s 的长度
+        // 获取字符串 s 和 t 的长度
         int n = s.length();
-        // 如果 s 为空字符串，则 s 视为 t 的子序列
-        if(n == 0) {
-            return true;
-        }
-        // 获取 t 的长度
         int m = t.length();
 
-        // 遍历 t 字符串
-        for (int i = 0; i < m; ) {
-            // 遍历 s 字符串
-            for (int j = 0; j < n; ) {
-                // 如果 t 的当前字符与 s 的当前字符匹配
-                if (s.charAt(j) == t.charAt(i)) {
-                    // 如果已经匹配到 s 的最后一个字符，则返回 true
-                    if(j == n - 1) {
-                        return true;
-                    }
-                    // 如果 t 已经遍历到最后一个字符但 s 还没匹配完成，则返回 false
-                    if(i == m - 1) {
-                        return false;
-                    }
-                    // 匹配成功，继续检查下一个字符
-                    i++;
-                    j++;
-                } else {
-                    // 如果字符不匹配，继续遍历 t 的下一个字符
-                    if(i == m - 1) {
-                        return false; // 如果已经到达 t 的最后字符，返回 false
-                    }
-                    i++;
+        // 创建一个布尔数组 dp，长度为 n+1，表示是否匹配到当前字符
+        boolean[] dp = new boolean[n + 1];
+
+        // 初始化 dp[0] 为 true，表示空字符串 s 一定是任意字符串 t 的子序列
+        dp[0] = true;
+
+        // 遍历字符串 t
+        for (int i = 1; i <= m; i++) {
+            // 遍历字符串 s
+            for (int j = 1; j <= n; j++) {
+                // 如果 dp[j] 为 true，说明这个字符已经匹配成功，继续下一个字符
+                if (dp[j]) {
+                    continue;
+                }
+                // 如果 s 的当前字符与 t 的当前字符匹配
+                if (s.charAt(j - 1) == t.charAt(i - 1)) {
+                    // 记录当前状态，如果匹配，说明可以通过 dp[j-1] 的状态来更新 dp[j]
+                    dp[j] = dp[j - 1];
+                    break; // 匹配成功后退出内层循环，继续检查 t 的下一个字符
                 }
             }
         }
-        // 如果遍历完 t 仍然没有找到完整的 s 子序列，返回 false
-        return false;
+        // 返回 s 是否完整匹配到 t
+        return dp[n];
     }
 }
+
