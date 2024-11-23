@@ -1,6 +1,5 @@
 package com.krahets.dual_pointer.leetcode151;
 
-
 public class Method02 {
 
     // 反转给定字符串中的单词顺序
@@ -18,6 +17,7 @@ public class Method02 {
         for (int i = str.length - 1; i >= 0; i--) {
             // 跳过空字符串（可能由于多空格导致拆分产生空元素）
             if (str[i].equals("")) continue;
+
             // 追加单词到 StringBuilder，后面加一个空格
             sb.append(str[i]).append(" ");
         }
@@ -26,4 +26,6 @@ public class Method02 {
         return sb.toString().trim();
     }
 }
+
+
 
