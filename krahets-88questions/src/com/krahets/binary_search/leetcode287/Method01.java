@@ -1,4 +1,4 @@
-package com.krahets.search.leetcode287;
+package com.krahets.binary_search.leetcode287;
 
 public class Method01 {
     /**

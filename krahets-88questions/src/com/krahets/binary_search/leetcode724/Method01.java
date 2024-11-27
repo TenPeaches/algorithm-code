@@ -1,4 +1,4 @@
-package com.krahets.search.leetcode724;
+package com.krahets.binary_search.leetcode724;
 
 import java.util.Arrays; // 导入 Arrays 类以使用流操作
 

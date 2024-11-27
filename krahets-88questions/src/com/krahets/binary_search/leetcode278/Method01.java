@@ -1,4 +1,4 @@
-package com.krahets.search.leetcode278;
+package com.krahets.binary_search.leetcode278;
 
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
