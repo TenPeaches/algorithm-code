@@ -2,7 +2,7 @@ package com.lookup_algorithm.lcr172;
 
 public class Method01 {
     public int countTarget(int[] scores, int target) {
-        if(scores==null ||scores.length==0){
+        if(scores==null  ||scores.length==0){
             return 0;
         }
         int i=0, j=scores.length-1, count=0;
