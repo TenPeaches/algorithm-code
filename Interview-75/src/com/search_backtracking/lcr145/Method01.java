@@ -1,4 +1,4 @@
-package com.search_backtracking;
+package com.search_backtracking.lcr145;
 
 import com.search_backtracking.lcr149.TreeNode;
 
