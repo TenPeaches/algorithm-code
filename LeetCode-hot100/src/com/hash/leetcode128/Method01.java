@@ -5,22 +5,21 @@ import java.util.Set;
 
 public class Method01 {
     public int longestConsecutive(int[] nums) {
-        Set<Integer> set=new HashSet<>();
-        for(int num:nums){
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
             set.add(num);
         }
-        int maxCount=0;
-        for(int num:nums){
-            if(!set.contains(num-1)){
-                int currentNum=num;
-                int count=1;
-                while(set.contains(currentNum+1)){
-                    currentNum++;
-                    count++;
-                }
-                maxCount=Math.max(maxCount,count);
+        int max = 0;
+        for (int num : set) {
+            if(set.contains(num-1)){
+                continue;
             }
+            int count = 1;
+            while (set.contains(++num)){
+                count++;
+            }
+            max = Math.max(max, count);
         }
-        return maxCount;
+        return max;
     }
 }
