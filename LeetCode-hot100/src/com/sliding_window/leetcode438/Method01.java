@@ -6,26 +6,27 @@ import java.util.List;
 
 public class Method01 {
     public List<Integer> findAnagrams(String s, String p) {
-        List<Integer> result = new ArrayList<>();
-        if(p.length() > s.length()){
-            return result;
+        int slen=s.length(),plen=p.length();
+        if(slen<plen){
+            return new ArrayList<Integer>();
         }
-        int[] pCount = new int[26];
-        int[] sCount = new int[26];
-        for (int i = 0; i < p.length(); i++) {
-            pCount[p.charAt(i) - 'a']++;
-            sCount[s.charAt(i) - 'a']++;
+        List<Integer> arr=new ArrayList<>();
+        int[] sarr=new int[26];
+        int[] parr=new int[26];
+        for (int i = 0; i < plen; i++) {
+            sarr[s.charAt(i)-'a']++;
+            parr[p.charAt(i)-'a']++;
         }
-        if(Arrays.equals(pCount, sCount)){
-            result.add(0);
+        if(Arrays.equals(sarr,parr)){
+            arr.add(0);
         }
-        for (int i = 1; i <s.length() - p.length() + 1 ; i++) {
-            sCount[s.charAt(i - 1) - 'a']--;
-            sCount[s.charAt(i + p.length() - 1) - 'a']++;
-            if(Arrays.equals(pCount, sCount)){
-                result.add(i);
+        for (int i = 0; i < slen-plen; i++) {
+            sarr[s.charAt(i)-'a']--;
+            sarr[s.charAt(i+plen)-'a']++;
+            if(Arrays.equals(sarr,parr)){
+                arr.add(i+1);
             }
         }
-        return result;
+        return arr;
     }
 }
