@@ -6,7 +6,7 @@ public class Method01 {
         int maxArea = 0;
         while (left < right) {
             int area = (right - left) * Math.min(height[left], height[right]);
-            maxArea = Math.max(maxArea, area);
+            maxArea  = Math.max(maxArea, area);
             if (height[left] < height[right]) {
                 left++;
             } else {
