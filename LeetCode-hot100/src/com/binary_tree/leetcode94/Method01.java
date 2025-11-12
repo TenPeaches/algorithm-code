@@ -4,17 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Method01 {
-    List<Integer> result = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
     public List<Integer> inorderTraversal(TreeNode root) {
-        inorderTraversal(root, result);
-        return result;
-    }
-    private void inorderTraversal(TreeNode root, List<Integer> result) {
-        if(root == null){
-            return;
+        if(root==null){
+            return list;
         }
-        inorderTraversal(root.left, result);
-        result.add(root.val);
-        inorderTraversal(root.right, result);
+        inorderTraversal(root.left);
+        list.add(root.val);
+        inorderTraversal(root.right);
+        return list;
     }
 }
