@@ -3,19 +3,20 @@ package com.binary_tree.leetcode543;
 import com.binary_tree.leetcode94.TreeNode;
 
 public class Method01 {
-    int max = 0;
+    int max=1;
     public int diameterOfBinaryTree(TreeNode root) {
-        dpth(root);
-        return max;
+        depth(root);
+        return max-1;
     }
 
-    private int dpth(TreeNode root) {
-        if (root == null) {
-            return -1;
+    private int depth(TreeNode root) {
+        if(root==null){
+            return 0;
         }
-        int left = dpth(root.left)+1;
-        int right = dpth(root.right)+1;
-        max = Math.max(max, left+right);
-        return Math.max(left, right);
+        int left=depth(root.left);
+        int right=depth(root.right);
+        max = Math.max(max,left+right+1);
+        return Math.max(left,right)+1;
     }
+
 }
