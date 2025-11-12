@@ -4,18 +4,18 @@ import com.linked_list.leetcode234.ListNode;
 
 public class Method01 {
     public boolean hasCycle(ListNode head) {
-        if (head == null || head.next == null) {
+        if(head==null||head.next==null){
             return false;
         }
-        ListNode slow = head;
-        ListNode fast = head.next;
-        while (slow != fast){
-            if (fast == null || fast.next == null) {
-                return false;
+        ListNode fast=head.next;
+        ListNode slow=head;
+        while (fast!=null&&fast.next!=null){
+            if(slow==fast){
+                return true;
             }
-            slow = slow.next;
-            fast = fast.next.next;
+            fast=fast.next.next;
+            slow=slow.next;
         }
-        return true;
+        return false;
     }
 }
